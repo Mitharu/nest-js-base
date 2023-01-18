@@ -1,5 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { UserService } from '../services/user.service';
+import { createConnections } from "typeorm";
+import { databaseConfig } from "../db.config";
 
 @Controller('user')
 export class UserController {
@@ -7,6 +9,7 @@ export class UserController {
 
   @Get()
   getHelloUser(): string {
+    databaseConfig
     return this.userService.getHelloUser();
   }
   
